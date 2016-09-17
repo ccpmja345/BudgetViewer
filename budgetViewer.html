@@ -9,7 +9,7 @@
     function budgetForm() {
         this.displayMessage = displayMessage;
     }
-    // Declare variables
+    // Declare constants
     var rentAmt;           // monthly expenditure for rent
     var foodAmt;          // monthly expenditure for food
     var utilityAmt;         // monthly expenditure for utilities
@@ -28,6 +28,34 @@
 // Prompt for amounts
         rentAmt = document.budgetForm.rent.value;
         rentAmt = parseFloat(rentAmt);
+
+        foodAmt = document.budgetForm.food.value;
+        foodAmt = parseFloat(foodAmt);
+
+        //utility and other, also
+
+        utilityAmt = document.budgetForm.utility.value;
+        utilityAmt = parseFloat(utilityAmt);
+
+        otherAmt = document.budgetForm.other.value;
+        otherAmt = parseFloat(otherAmt);
+
+        //add rent + food + utility + other to get totExpenses
+        totExpenses = rentAmt + foodAmt + utilityAmt + otherAmt;
+
+        //Do this for rent, food, utility, and other
+        rentPct =rentAmt/totExpenses * 100.0;
+        foodPct =foodAmt/totExpenses * 100.0;
+        utilityPct =utilityAmt/totExpenses * 100.0;
+        otherPct =otherAmt/totExpenses * 100.0;
+
+        //Calculate 4 percentages
+        //% = amount/total * 100.0
+        //rentPct = %; " + rentPct + "\n" +
+        //foodPct = %; " + foodPct + "\n" +
+        //utilityPct = %; " + utilityPct + "\n" +
+        //otherPct = %; " + otherPct + "\n" +
+
 // Total amounts and calculate percentages
         alert("Total Expenses: " + totExpenses + "\n" +
                 "Rent %: " + rentPct + "\n" +
@@ -36,46 +64,21 @@
                 "Other %: " + otherPct);
     }
 </script>
-
 <form name="budgetForm" action="">
     Enter Rent Amount:
-
     <input type="text" name="rent" size="40" />
-    rentAmt = document.budgetForm.rent.value;
-    rentAmt = parseFloat(rentAmt);
-    var rentPct;            // % of budget spent on rent
-    var foodPct;           // % of budget spent on food
-    var utilityPct;          // % of budget spent on utilities
-    var otherPct;          // % of budget spent on other
+    <p/>
+    Enter Food Amount:
+    <input type="text" name="food" size="40" />
+    <p/>
+    Enter Utitlity Amount:
+    <input type="text" name="utility" size="40" />
+    <p/>
+    Enter Other Amount:
+    <input type="text" name="other" size="40" />
     <p/>
 
-    <input type="text" name="rent" size="40" />
-    rentAmt = document.budgetForm.rent.value;
-    rentAmt = parseFloat(rentAmt);
-    var rentPct;            // % of budget spent on rent
-    var foodPct;           // % of budget spent on food
-    var utilityPct;          // % of budget spent on utilities
-    var otherPct;          // % of budget spent on other
-    <p/>
-
-    <input type="text" name="rent" size="40" />
-    rentAmt = document.budgetForm.rent.value;
-    rentAmt = parseFloat(rentAmt);
-    var rentPct;            // % of budget spent on rent
-    var foodPct;           // % of budget spent on food
-    var utilityPct;          // % of budget spent on utilities
-    var otherPct;          // % of budget spent on other
-    <p/>
-
-    <input type="text" name="rent" size="40" />
-    rentAmt = document.budgetForm.rent.value;
-    rentAmt = parseFloat(rentAmt);
-    var rentPct;            // % of budget spent on rent
-    var foodPct;           // % of budget spent on food
-    var utilityPct;          // % of budget spent on utilities
-    var otherPct;          // % of budget spent on other
-    <p/>
-   input type="button" name="compute"
+   <input type="button" name="compute"
            value="Compute!"
            onclick="budget.displayMessage()" /><p />
 </form>
